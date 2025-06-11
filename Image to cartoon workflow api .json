@@ -1,0 +1,749 @@
+{
+  "6": {
+    "inputs": {
+      "text": [
+        "91",
+        0
+      ],
+      "clip": [
+        "88",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "88",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "10": {
+    "inputs": {
+      "unet_name": "fluxFillFP8_v10.safetensors",
+      "weight_dtype": "fp8_e5m2"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "11": {
+    "inputs": {
+      "clip_name1": "long_clip\\ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+      "clip_name2": "t5\\google_t5-v1_1-xxl_encoderonly-fp8_e4m3fn.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "12": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "13": {
+    "inputs": {
+      "guidance": 30,
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "15": {
+    "inputs": {
+      "seed": 82388142753133,
+      "steps": 25,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "23",
+        0
+      ],
+      "positive": [
+        "120",
+        0
+      ],
+      "negative": [
+        "120",
+        1
+      ],
+      "latent_image": [
+        "120",
+        2
+      ],
+      "optional_vae": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "17": {
+    "inputs": {
+      "samples": [
+        "15",
+        3
+      ],
+      "vae": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "18": {
+    "inputs": {
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": [
+        "128",
+        0
+      ],
+      "height": [
+        "128",
+        1
+      ],
+      "model": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "19": {
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "23": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "88",
+        0
+      ],
+      "pulid_flux": [
+        "24",
+        0
+      ],
+      "eva_clip": [
+        "25",
+        0
+      ],
+      "face_analysis": [
+        "27",
+        0
+      ],
+      "image": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "ApplyPulidFlux",
+    "_meta": {
+      "title": "Apply PuLID Flux"
+    }
+  },
+  "24": {
+    "inputs": {
+      "pulid_file": "pulid_flux_v0.9.1.safetensors"
+    },
+    "class_type": "PulidFluxModelLoader",
+    "_meta": {
+      "title": "Load PuLID Flux Model"
+    }
+  },
+  "25": {
+    "inputs": {},
+    "class_type": "PulidFluxEvaClipLoader",
+    "_meta": {
+      "title": "Load Eva Clip (PuLID Flux)"
+    }
+  },
+  "27": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "PulidFluxInsightFaceLoader",
+    "_meta": {
+      "title": "Load InsightFace (PuLID Flux)"
+    }
+  },
+  "28": {
+    "inputs": {
+      "image": "WhatsApp Image 2025-05-30 at 06.53.05_d3c1c904.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image of Real Kid"
+    }
+  },
+  "29": {
+    "inputs": {
+      "seed": 702949075755491,
+      "steps": 24,
+      "cfg": 1,
+      "sampler_name": "deis",
+      "scheduler": "ddim_uniform",
+      "denoise": 0.5,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "132",
+        0
+      ],
+      "positive": [
+        "134",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "134",
+        2
+      ],
+      "optional_vae": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "35": {
+    "inputs": {
+      "samples": [
+        "29",
+        3
+      ],
+      "vae": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "36": {
+    "inputs": {
+      "images": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "47": {
+    "inputs": {
+      "image": "WhatsApp Image 2025-05-30 at 06.53.03_fbabc303.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image of Cartoon"
+    }
+  },
+  "50": {
+    "inputs": {
+      "text_0": " face<loc_88><loc_156><loc_831><loc_547><loc_248><loc_264><loc_699><loc_524>hairs<loc_87><loc_153><loc_832><loc_547>",
+      "text": [
+        "54",
+        2
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "54": {
+    "inputs": {
+      "text_input": "face, hairs ",
+      "task": "caption_to_phrase_grounding",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 1032582548916206,
+      "image": [
+        "28",
+        0
+      ],
+      "florence2_model": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "55": {
+    "inputs": {
+      "model": "CogFlorence-2.2-Large",
+      "precision": "fp16",
+      "attention": "sdpa",
+      "convert_to_safetensors": false
+    },
+    "class_type": "Florence2ModelLoader",
+    "_meta": {
+      "title": "Florence2ModelLoader"
+    }
+  },
+  "88": {
+    "inputs": {
+      "wildcard_text": "<lora:SameFace_Fix>, __samples/jewel__",
+      "populated_text": "<lora:SameFace_Fix>, ruby",
+      "mode": "reproduce",
+      "Select to add LoRA": "Select the LoRA to add to the text",
+      "Select to add Wildcard": "Select the Wildcard to add to the text",
+      "seed": 968820560506489,
+      "model": [
+        "18",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ImpactWildcardEncode",
+    "_meta": {
+      "title": "ImpactWildcardEncode"
+    }
+  },
+  "89": {
+    "inputs": {
+      "wildcard_text": "C:\\Users\\Usama\\Downloads\\source.webp\n\nAmateur, No watermark, poor lighting,  \n\nkid, girl, young, child, long hair, shoulder length hair , white skin, smiling, Black eyes, \n\nText1 \n\nInpainting method with clean edges \n",
+      "populated_text": "C:\\Users\\Usama\\Downloads\\source.webp\n\nAmateur, No watermark, poor lighting,  \n\nkid, girl, young, child, long hair, shoulder length hair , white skin, smiling, Black eyes, \n\nText1 \n\nInpainting method with clean edges \n",
+      "mode": "reproduce",
+      "seed": 985865675500090,
+      "Select to add Wildcard": "Select the Wildcard to add to the text"
+    },
+    "class_type": "ImpactWildcardProcessor",
+    "_meta": {
+      "title": "ImpactWildcardProcessor"
+    }
+  },
+  "90": {
+    "inputs": {
+      "text": [
+        "89",
+        0
+      ],
+      "old": "Text1 ",
+      "new": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "Replace Text _O",
+    "_meta": {
+      "title": "Replace Text _O"
+    }
+  },
+  "91": {
+    "inputs": {
+      "a": [
+        "90",
+        0
+      ],
+      "b": [
+        "88",
+        3
+      ]
+    },
+    "class_type": "JWStringConcat",
+    "_meta": {
+      "title": "Positive Prompt Concat"
+    }
+  },
+  "93": {
+    "inputs": {
+      "text_0": "C:\\Users\\Usama\\Downloads\\source.webp\n\nAmateur, No watermark, poor lighting,  \n\nkid, girl, young, child, long hair, shoulder length hair , white skin, smiling, Black eyes, \n\n face<loc_88><loc_156><loc_831><loc_547><loc_248><loc_264><loc_699><loc_524>hairs<loc_87><loc_153><loc_832><loc_547>\n\nInpainting method with clean edges \n<lora:SameFace_Fix>, ruby",
+      "text": [
+        "91",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "120": {
+    "inputs": {
+      "noise_mask": false,
+      "positive": [
+        "13",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "12",
+        0
+      ],
+      "pixels": [
+        "47",
+        0
+      ],
+      "mask": [
+        "152",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "122": {
+    "inputs": {
+      "prompt": "human face, Hair",
+      "threshold": 0.3,
+      "sam_model": [
+        "124",
+        0
+      ],
+      "grounding_dino_model": [
+        "123",
+        0
+      ],
+      "image": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "123": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinT_OGC (694MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "124": {
+    "inputs": {
+      "model_name": "sam_vit_h (2.56GB)"
+    },
+    "class_type": "SAMModelLoader (segment anything)",
+    "_meta": {
+      "title": "SAMModelLoader (segment anything)"
+    }
+  },
+  "125": {
+    "inputs": {
+      "anything": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "easy cleanGpuUsed",
+    "_meta": {
+      "title": "Clean VRAM Used"
+    }
+  },
+  "126": {
+    "inputs": {
+      "anything": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "easy cleanGpuUsed",
+    "_meta": {
+      "title": "Clean VRAM Used"
+    }
+  },
+  "127": {
+    "inputs": {
+      "images": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "128": {
+    "inputs": {
+      "image": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "Get Image Size",
+    "_meta": {
+      "title": "Get Image Size"
+    }
+  },
+  "130": {
+    "inputs": {
+      "mask": [
+        "152",
+        0
+      ]
+    },
+    "class_type": "PreviewMask_",
+    "_meta": {
+      "title": "Preview Mask ♾️Mixlab"
+    }
+  },
+  "131": {
+    "inputs": {
+      "expand": 30,
+      "tapered_corners": true,
+      "mask": [
+        "122",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "132": {
+    "inputs": {
+      "unet_name": "acornIsSpinningFLUX_devfp8V11.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "133": {
+    "inputs": {
+      "prompt": "Hair",
+      "threshold": 0.3,
+      "sam_model": [
+        "124",
+        0
+      ],
+      "grounding_dino_model": [
+        "123",
+        0
+      ],
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "134": {
+    "inputs": {
+      "noise_mask": true,
+      "positive": [
+        "137",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "12",
+        0
+      ],
+      "pixels": [
+        "17",
+        0
+      ],
+      "mask": [
+        "153",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "135": {
+    "inputs": {
+      "expand": 20,
+      "tapered_corners": true,
+      "mask": [
+        "133",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "136": {
+    "inputs": {
+      "text": [
+        "140",
+        2
+      ],
+      "clip": [
+        "88",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "137": {
+    "inputs": {
+      "guidance": 30,
+      "conditioning": [
+        "136",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "139": {
+    "inputs": {
+      "mask": [
+        "153",
+        0
+      ]
+    },
+    "class_type": "PreviewMask_",
+    "_meta": {
+      "title": "Preview Mask ♾️Mixlab"
+    }
+  },
+  "140": {
+    "inputs": {
+      "text_input": "hairs ",
+      "task": "caption_to_phrase_grounding",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 634096710937875,
+      "image": [
+        "17",
+        0
+      ],
+      "florence2_model": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "152": {
+    "inputs": {
+      "kernel_size": 60,
+      "sigma": 20,
+      "mask": [
+        "131",
+        0
+      ]
+    },
+    "class_type": "ImpactGaussianBlurMask",
+    "_meta": {
+      "title": "Gaussian Blur Mask"
+    }
+  },
+  "153": {
+    "inputs": {
+      "kernel_size": 10,
+      "sigma": 10,
+      "mask": [
+        "135",
+        0
+      ]
+    },
+    "class_type": "ImpactGaussianBlurMask",
+    "_meta": {
+      "title": "Gaussian Blur Mask"
+    }
+  },
+  "188": {
+    "inputs": {},
+    "class_type": "easy cleanGpuUsed",
+    "_meta": {
+      "title": "Clean VRAM Used"
+    }
+  }
+}
